@@ -20,9 +20,6 @@
         <span>{{ sidebarItem.name }}</span>
       </router-link>
     </nav>
-    <div class="mt-auto text-xs text-gray-400 pb-4 pt-8">
-      &copy; 2025 Emoji Hub
-    </div>
   </aside>
 </template>
 

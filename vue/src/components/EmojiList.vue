@@ -1,28 +1,32 @@
 <template>
-  <div class="flex">
-    <div class="flex-1 ml-64 overflow-y-auto">
-      <div class="p-6">
-        <h2 class="text-5xl text-amber-300 font-extrabold py-8">Home</h2>
-        <div class="relative mb-6">
+  <div class="flex flex-col md:flex-row">
+    <div class="flex-1 w-full md:ml-80 md:pl-6 overflow-y-auto">
+      <div class="p-2 sm:p-4 md:p-6">
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl text-amber-300 font-extrabold py-4 sm:py-6 md:py-8">
+          Home
+        </h2>
+        <div class="relative mb-4 sm:mb-6">
           <span
-            class="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-amber-300 pointer-events-none">
+            class="absolute left-4 top-1/2 -translate-y-1/2 text-xl sm:text-2xl text-amber-300 pointer-events-none">
             <Icon icon="material-symbols:search-rounded" />
           </span>
           <input
             v-model="search"
             type="text"
             placeholder="Search emojis..."
-            class="pl-12 pr-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-200" />
+            class="w-full pl-12 pr-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-200 text-base sm:text-lg" />
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
+        <div
+          class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-4">
           <div
             v-for="emoji in filteredEmojis"
             :key="emoji.name"
             @click="onEmojiClick(emoji)"
-            class="cursor-pointer p-4 bg-gray-50 hover:bg-amber-100 transition-colors duration-200 rounded-4xl flex flex-col items-center relative group">
+            class="cursor-pointer p-2 sm:p-4 bg-gray-50 hover:bg-amber-100 transition-colors duration-200 rounded-2xl sm:rounded-4xl flex flex-col items-center relative group">
             <button
               @click.stop="toggleFavorite(emoji.name)"
-              class="absolute top-3 right-3 z-10 text-2xl cursor-pointer"
+              class="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 text-xl sm:text-2xl cursor-pointer"
               :class="
                 isFavorite(emoji.name)
                   ? 'text-red-400'
@@ -36,7 +40,9 @@
                     : 'material-symbols:favorite-outline-rounded'
                 " />
             </button>
-            <div v-html="emoji.htmlCode[0]" class="text-7xl"></div>
+            <div
+              v-html="emoji.htmlCode[0]"
+              class="text-4xl sm:text-6xl md:text-7xl"></div>
           </div>
         </div>
       </div>

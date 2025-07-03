@@ -4,23 +4,25 @@
     <Transition name="fade">
       <div
         v-show="selectedEmoji"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black/20"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/20 px-2 py-4 overflow-y-auto"
         @click.self="closeModal">
         <Transition name="modal">
           <div
             v-if="selectedEmoji"
-            class="bg-white rounded-4xl shadow p-8 w-full max-w-md relative">
+            class="bg-white rounded-3xl shadow p-4 sm:p-6 md:p-8 w-full max-w-xs sm:max-w-md md:max-w-lg relative mx-auto my-auto">
             <button
               @click="closeModal"
-              class="absolute top-4 right-4 text-gray-400 p-2 bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center hover:text-gray-500 transition duration-200 text-2xl">
-              <Icon icon="material-symbols:close" class="font-black text-7xl" />
+              class="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-400 p-2 bg-gray-200 rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:text-gray-500 transition duration-200 text-xl sm:text-2xl">
+              <Icon
+                icon="material-symbols:close"
+                class="font-black text-4xl sm:text-7xl" />
             </button>
             <div class="flex flex-col gap-2">
               <div
                 v-html="selectedEmoji.htmlCode[0]"
-                class="text-7xl text-center"></div>
+                class="text-5xl sm:text-7xl text-center"></div>
               <h2
-                class="text-2xl font-bold mt-2 overflow-x-auto whitespace-nowrap">
+                class="text-lg sm:text-2xl font-bold mt-2 overflow-x-auto whitespace-nowrap">
                 {{ selectedEmoji.name }}
               </h2>
               <p>
@@ -31,11 +33,11 @@
                 <span class="text-amber-300 font-bold">Group:</span>
                 {{ selectedEmoji.group }}
               </p>
-              <p>
+              <p class="break-all">
                 <span class="text-amber-300 font-bold">HTML Code:</span>
                 {{ selectedEmoji.htmlCode.join(" ") }}
               </p>
-              <p>
+              <p class="break-all">
                 <span class="text-amber-300 font-bold">Unicode:</span>
                 {{ selectedEmoji.unicode.join(" ") }}
               </p>
