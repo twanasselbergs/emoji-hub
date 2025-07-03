@@ -8,7 +8,7 @@
 
 ## Overview
 
-Emoji Hub is an emoji library with favorites & search functions, built with the Vue framework.
+Emoji Hub is an emoji library with favorites & search features, built with the Vue framework.
 
 1. Front-end (`/vue`)
 
